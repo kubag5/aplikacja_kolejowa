@@ -7,7 +7,7 @@
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kubag5.demo.HelloController">
 
     <top>
-        <GridPane prefHeight="163.0" maxHeight="163.0" minHeight="163.0" prefWidth="600.0" style="-fx-background-color: #8bc34a;" BorderPane.alignment="CENTER">
+        <GridPane maxHeight="163.0" minHeight="163.0" prefHeight="163.0" prefWidth="600.0" style="-fx-background-color: #8bc34a;" BorderPane.alignment="CENTER">
 
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -33,7 +33,7 @@
                     <Text id="title" text="Nazwa aplikacji" textAlignment="CENTER" wrappingWidth="600" />
                 </HBox>
 
-                <HBox alignment="CENTER" prefHeight="100.0" minHeight="60.0" prefWidth="200.0" spacing="50" style="-fx-background-color: #689f38; padding: 70;" GridPane.columnSpan="6" GridPane.rowIndex="5" GridPane.rowSpan="2">
+                <HBox alignment="CENTER" minHeight="60.0" prefHeight="100.0" prefWidth="200.0" spacing="50" style="-fx-background-color: #689f38; padding: 70;" GridPane.columnSpan="6" GridPane.rowIndex="5" GridPane.rowSpan="2">
 
                     <children>
                         <Button mnemonicParsing="false" styleClass="buttonMenuBar" text="opcja1" />
@@ -75,7 +75,7 @@
 
             <HBox alignment="CENTER" maxHeight="50" prefHeight="10.0" prefWidth="600.0" spacing="60">
                 <children>
-                    <Label text="Data podróży: " styleClass="inputHint"/>
+                    <Label styleClass="inputHint" text="Data podróży: " />
                     <DatePicker promptText="Data" styleClass="inputField" />
                 </children>
             </HBox>
@@ -84,9 +84,8 @@
                     <Label styleClass="inputHint" text="Czas odjazdu: " />
                     <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
                         <children>
-                            <!-- TODO: create custom time picker -->
-                            <TextField fx:id="timeTextField" onKeyTyped="#removeHint" styleClass="inputField" />
-                            <Text fx:id="timeHintText" mouseTransparent="true" styleClass="inputHint" text="Czas odjazdu" />
+                            <TextField fx:id="timeTextField" onKeyTyped="#formatTime"  styleClass="inputField" promptText="HH:mm"/>
+                            <!--<Text fx:id="timeHintText" mouseTransparent="true" styleClass="inputHint" text="Czas odjazdu" />-->
                         </children>
                     </StackPane>
                 </children>
@@ -94,7 +93,7 @@
 
             <HBox alignment="CENTER" maxHeight="50" prefHeight="10.0" prefWidth="600.0">
                 <children>
-                    <Button minHeight="50" prefWidth="133" minWidth="80" mnemonicParsing="false" styleClass="searchButton" text="SZUKAJ" /><!-- TODO repair search button-->
+                    <Button minHeight="50" minWidth="80" mnemonicParsing="false" prefWidth="133" styleClass="searchButton" text="SZUKAJ" />
                 </children>
             </HBox>
 
