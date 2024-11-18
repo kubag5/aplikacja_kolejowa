@@ -1,0 +1,105 @@
+* {
+	-fx-dark-primary-color: #689f38;
+    -fx-darker-primary-color: #598a2f;
+    -fx-light-primary-color: #bfe3c0;
+    -fx-lighter-primary-color: #b0d6b1;
+    -fx-primary-color: #8bc34a;
+    -fx-accent-color: #4caf50;
+    -fx-primary-text-color: #212121;
+    -fx-secondary-text-color: #757575;
+	-fx-light-grey-color: #d1d1d1;
+	-fx-focus-color: -fx-darker-primary-color;
+
+
+    -fx-text-fill: -fx-primary-text-color;
+}
+
+.date-picker .arrow-button {
+	-fx-background-color: -fx-dark-primary-color;
+	-fx-background-radius: 0;
+}
+.date-picker .arrow-button:hover {
+	-fx-background-color: -fx-accent-color;
+}
+.date-picker .arrow-button .arrow {
+	-fx-background-color: white;
+}
+.date-picker .cell {
+	-fx-background-color: white;
+}
+.date-picker .cell:hover {
+	-fx-background-color: -fx-light-grey-color;
+}
+.date-picker .cell:focused {
+	-fx-background-color: -fx-light-grey-color;
+}
+.date-picker .selected {
+	-fx-background-color: -fx-dark-primary-color;
+	-fx-text-fill: white;
+}
+.date-picker .selected:focused {
+	-fx-background-color: -fx-dark-primary-color;
+	-fx-text-fill: white;
+}
+.date-picker-popup  {
+	-fx-border-color: transparent;
+}
+.date-picker-popup .month-year-pane {
+	-fx-background-color: -fx-dark-primary-color;
+}
+.date-picker-popup .month-year-pane .label {
+	-fx-text-fill: white;
+}
+.date-picker-popup .week-number-cell {
+	-fx-text-fill: -fx-accent-color;
+}
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+	-fx-background-color: white;
+}
+
+#title {
+    -fx-font-size: 34pt;
+    -fx-font-weight: bold;
+    -fx-font-family: "Source Sans Pro";
+}
+
+.buttonMenuBar {
+    -fx-background-color: -fx-dark-primary-color;
+    -fx-font-size: 18pt;
+}
+.searchFormLabel {
+    -fx-font-size: 9pt;
+}
+.searchFormTextArea {
+    -fx-font-size: 8pt;
+}
+.inputBox {
+    -fx-background-color: -fx-light-primary-color;
+    -fx-padding: 10;
+}
+.inputField {
+    -fx-font-size: 11pt;
+    -fx-background-color: -fx-lighter-primary-color;
+    -fx-padding: 10pt;
+}
+.inputHint {
+    -fx-font-size: 14pt;
+    -fx-font-weight: 100;
+    -fx-text-fill: -fx-secondary-text-color;
+    -fx-font-style: italic;
+}
+.divider {
+    -fx-font-size: 34pt;
+    -fx-font-weight: 900;
+    -fx-font-style: italic;
+}
+.searchButton {
+    -fx-font-size: 17pt;
+    -fx-font-weight: 700;
+    -fx-text-size: 35pt;
+    -fx-text-fill: -fx-primary-text-color;
+    -fx-font-style: italic;
+    -fx-background-color: -fx-lighter-primary-color;
+
+}

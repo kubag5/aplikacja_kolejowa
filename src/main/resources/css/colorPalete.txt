@@ -1,0 +1,10 @@
+dark primary color - #689f38
+darker primary - #598a2f
+Light primary color - #c8e6c9
+Lighter primary color - #b0d6b1
+Primary color - #8bc34a
+Text/Icons - #212121
+Accent color - #4caf50
+Primary text - #212121
+Secondary text - #757575
+Divider color #BDBDBD
