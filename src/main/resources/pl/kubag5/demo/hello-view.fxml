@@ -2,101 +2,124 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kubag5.demo.HelloController">
-
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #111111;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kubag5.demo.HelloController">
     <top>
-        <GridPane maxHeight="163.0" minHeight="163.0" prefHeight="163.0" prefWidth="600.0" style="-fx-background-color: #8bc34a;" BorderPane.alignment="CENTER">
-
+        <GridPane maxHeight="200" minHeight="100" prefHeight="124.0" prefWidth="600.0" style="-fx-background-color: #8bc34a;">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="100" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="100" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="100" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="100" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="100" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="100" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="100" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="100" />
             </columnConstraints>
-
             <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints />
+                <RowConstraints minHeight="50" vgrow="ALWAYS" />
+                <RowConstraints minHeight="50" vgrow="ALWAYS" />
             </rowConstraints>
             <children>
-                <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.columnSpan="6" GridPane.rowIndex="1" GridPane.rowSpan="3">
-                    <Text id="title" text="Nazwa aplikacji" textAlignment="CENTER" wrappingWidth="600" />
+                <HBox alignment="CENTER" layoutY="12.0" maxHeight="-Infinity" minHeight="100.0" prefHeight="100.0" prefWidth="200.0" spacing="12" GridPane.columnIndex="1" GridPane.columnSpan="6" GridPane.rowIndex="0" GridPane.rowSpan="2">
+                    <Text id="title" text="Nazwa aplikacji" textAlignment="CENTER" />
+                    <AnchorPane maxHeight="50.0" prefHeight="2.0" prefWidth="50.0" HBox.hgrow="NEVER">
+                        <children>
+                            <SVGPath content="M4.979,9.484 C4.969,8.674 4.312,8.02 3.5,8.02 C2.689,8.02 2.033,8.674 2.023,9.484 L2.02,9.504 C2.02,10.323 2.683,10.986 3.499,10.986 C4.317,10.986 4.98,10.323 4.98,9.504 L4.979,9.484 L4.979,9.484 ZM9.998,9.454 C9.978,8.661 9.318,8.021 8.504,8.021 C7.69,8.021 7.031,8.661 7.012,9.454 C7.01,9.465 7.008,9.477 7.008,9.488 C7.008,10.298 7.678,10.955 8.504,10.955 C9.332,10.955 10.002,10.298 10.002,9.488 C10.002,9.478 9.998,9.465 9.998,9.454 L9.998,9.454 ZM13.998,9.454 C13.978,8.661 13.318,8.021 12.504,8.021 C11.69,8.021 11.031,8.661 11.012,9.454 C11.01,9.465 11.008,9.477 11.008,9.488 C11.008,10.298 11.678,10.955 12.504,10.955 C13.332,10.955 14.002,10.298 14.002,9.488 C14.002,9.478 13.998,9.465 13.998,9.454 L13.998,9.454 ZM15.938,9.98 C15.938,9.015 15.016,8.009 15.016,8.009 L14.969,8.009 L14.969,6.957 L14.969,5.015 L13.985,5.015 L13.985,2.015 L12.023,2.039 L12.023,5.039 L10.969,5.015 L10.969,3.036 L10.016,3.036 L10.016,5.015 L6.969,5.015 L6.969,1.953 L7.969,1.953 L7.969,0 L0.0160000001,0 L0.0160000001,1.938 L1.016,1.938 L1.016,7.063 L0.0300000001,7.063 L0.0300000001,9.985 L1.009,9.985 C0.98,9.829 0.961,9.669 0.961,9.505 C0.961,9.493 0.966,9.472 0.966,9.472 C0.983,8.082 2.11,6.959 3.501,6.959 C4.894,6.959 6.022,8.082 6.038,9.472 C6.038,9.482 6.044,9.493 6.044,9.505 C6.044,9.669 6.024,9.829 5.995,9.985 L14.97,9.985 L14.97,9.981 L15.938,9.981 L15.938,9.98 Z M5,5.041 L2.992,5.041 L2.992,1.969 L5,1.969 L5,5.041 L5,5.041 Z" layoutX="28.0" layoutY="20.0" scaleX="5" scaleY="5" AnchorPane.bottomAnchor="19.413999938964842" AnchorPane.rightAnchor="6.46200006790459" />
+                        </children>
+                    </AnchorPane>
                 </HBox>
-
-                <HBox alignment="CENTER" minHeight="60.0" prefHeight="100.0" prefWidth="200.0" spacing="50" style="-fx-background-color: #689f38; padding: 70;" GridPane.columnSpan="6" GridPane.rowIndex="5" GridPane.rowSpan="2">
-
-                    <children>
-                        <Button mnemonicParsing="false" styleClass="buttonMenuBar" text="opcja1" />
-                        <Button mnemonicParsing="false" styleClass="buttonMenuBar" text="opcja2" />
-                        <Button mnemonicParsing="false" styleClass="buttonMenuBar" text="opcja3" />
-                    </children>
-                </HBox>
+                <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-padding: 20;" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="2">
+                    <AnchorPane id="menuButton" fx:id="menuButton" maxHeight="50" maxWidth="10" minHeight="5" prefHeight="25" prefWidth="4.0">
+                        <SVGPath content="M19.5 8.25H4.5V6.75H19.5V8.25ZM19.5 12.75H4.5V11.25H19.5V12.75ZM19.5 17.25H4.5V15.75H19.5V17.25Z" scaleX="1.4" scaleY="1.4" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" />
+                    </AnchorPane>
+                </VBox>
             </children>
-
         </GridPane>
     </top>
     <center>
-
-        <VBox alignment="CENTER" prefHeight="-Infinity" prefWidth="-Infinity" spacing="17" style="-fx-background-color: #c8e6c9;" BorderPane.alignment="CENTER">
-
-            <HBox alignment="CENTER" maxHeight="50" prefHeight="10.0" prefWidth="600.0" spacing="20">
-               <children>
-      
-                    <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
-                      <children>
-                          <TextField fx:id="departureTextField" onKeyTyped="#removeHint" styleClass="inputField" />
-                          <Text fx:id="departureHintText" mouseTransparent="true" styleClass="inputHint" text="Wyjazd z" />
-                      </children>
-                    </StackPane>
-
-                    <Text styleClass="divider" text="#" />
-
-
-                   <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
-                       <children>
-                           <TextField fx:id="arrivalTextField" onKeyTyped="#removeHint" styleClass="inputField" />
-                           <Text fx:id="arrivalHintText" mouseTransparent="true" styleClass="inputHint" text="Wyjazd z" />
-                       </children>
-                   </StackPane>
-
-
-               </children>
-            </HBox>
-
-            <HBox alignment="CENTER" maxHeight="50" prefHeight="10.0" prefWidth="600.0" spacing="60">
+        <HBox prefHeight="-Infinity">
+            <AnchorPane fx:id="menuContainer" maxWidth="300" minWidth="0" style="-fx-background-color: #b0d6b1;" BorderPane.alignment="TOP_LEFT">
                 <children>
-                    <Label styleClass="inputHint" text="Data podróży: " />
-                    <DatePicker promptText="Data" styleClass="inputField" />
+                    <VBox fx:id="sideMenu" maxWidth="300" minWidth="300" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox fx:id="menuBox" prefWidth="300" style="-fx-background-color: #00000080;" VBox.vgrow="ALWAYS" spacing="10">
+                            <HBox styleClass="menuOption" minWidth="300" prefWidth="-Infinity" minHeight="50" alignment="CENTER">
+                                <Text textAlignment="RIGHT" HBox.hgrow="ALWAYS" text="Opcja menu" />
+                            </HBox>
+                            <HBox styleClass="menuOption" minWidth="300" prefWidth="-Infinity" minHeight="50" alignment="CENTER">
+                                <Text textAlignment="RIGHT" HBox.hgrow="ALWAYS" text="Opcja menu" />
+                            </HBox>
+                            <HBox styleClass="menuOption" minWidth="300" prefWidth="-Infinity" minHeight="50" alignment="CENTER">
+                                <Text textAlignment="RIGHT" HBox.hgrow="ALWAYS" text="Opcja menu" />
+                            </HBox>
+                        </VBox>
+                        <AnchorPane minHeight="50" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #00000090;">
+                             <children>
+                                <SVGPath content="M12 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM12 13c4.418 0 8 2.015 8 4.5S20 22 12 22 4 19.985 4 17.5 7.582 13 12 13Z" layoutX="12.0" layoutY="13.0" scaleX="1.6" scaleY="1.6" />
+                                <Text id="userButtonText" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwa uzytkownika" textAlignment="RIGHT" wrappingWidth="300" AnchorPane.rightAnchor="7.0" />
+                             </children>
+                        </AnchorPane>
+                    </VBox>
                 </children>
-            </HBox>
-            <HBox alignment="CENTER" maxHeight="50" prefHeight="10.0" prefWidth="10.0" spacing="60">
-                <children>
-                    <Label styleClass="inputHint" text="Czas odjazdu: " />
-                    <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
+            </AnchorPane>
+
+            <VBox alignment="CENTER" maxHeight="Infinity" minWidth="200" prefHeight="178.0" spacing="17" style="-fx-background-color: #c8e6c9;" HBox.hgrow="ALWAYS">
+
+                  <HBox alignment="CENTER" maxHeight="50" prefHeight="10.0" prefWidth="600.0" spacing="20">
                         <children>
-                            <TextField fx:id="timeTextField" onKeyTyped="#formatTime"  styleClass="inputField" promptText="HH:mm"/>
-                            <!--<Text fx:id="timeHintText" mouseTransparent="true" styleClass="inputHint" text="Czas odjazdu" />-->
+
+                            <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
+                                <TextField fx:id="departureTextField" promptText="Wyjazd z" styleClass="inputField" />
+                            </StackPane>
+
+                            <AnchorPane fx:id="reverseLineSearch" maxHeight="50.0" prefHeight="2.0" prefWidth="50.0" HBox.hgrow="NEVER">
+                                <SVGPath content="M9.25 6.12V4.87h-7l3-2.05-.71-1L.59 4.45A1.29 1.29 0 0 0 0 5.5a1.29 1.29 0 0 0 .59 1l3.93 2.72.71-1-3-2.06zm6.16 3.33-3.93-2.67-.71 1 3 2.06h-7v1.25h7.03l-3 2 .71 1 3.93-2.67a1.23 1.23 0 0 0 0-2.1z" layoutX="16.0" layoutY="2.0" scaleX="3" scaleY="3" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
+                            </AnchorPane>
+
+                            <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
+                                <TextField fx:id="arrivalTextField" promptText="Przyjazd do" styleClass="inputField" />
+                            </StackPane>
+
+
                         </children>
-                    </StackPane>
-                </children>
-            </HBox>
+                  </HBox>
 
-            <HBox alignment="CENTER" maxHeight="50" prefHeight="10.0" prefWidth="600.0">
-                <children>
-                    <Button minHeight="50" minWidth="80" mnemonicParsing="false" prefWidth="133" styleClass="searchButton" text="SZUKAJ" />
-                </children>
-            </HBox>
+                  <HBox alignment="CENTER" maxHeight="50" prefHeight="10.0" prefWidth="600.0" spacing="60">
+                      <children>
+                          <Label styleClass="inputHint" text="Data podróży: " />
 
-        </VBox>
+                          <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
+                              <DatePicker fx:id="datePicker" promptText="Data" styleClass="inputField" />
+                          </StackPane>
+                      </children>
+                  </HBox>
+                  <HBox alignment="CENTER" maxHeight="50" prefHeight="10.0" prefWidth="692.0" spacing="60">
+                      <children>
+                          <Label styleClass="inputHint" text="Czas odjazdu: " />
+                          <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
+                              <children>
+                                  <TextField fx:id="timeTextField" onKeyTyped="#formatTime" promptText="HH:mm" styleClass="inputField" />
+                              </children>
+                          </StackPane>
+                      </children>
+                  </HBox>
+
+                  <HBox alignment="CENTER" maxHeight="50" prefHeight="10.0" prefWidth="600.0">
+                      <children>
+                          <HBox styleClass="searchButton">
+                              <Button minHeight="50" minWidth="80" mnemonicParsing="false" prefWidth="200" styleClass="searchButton" text="SZUKAJ" />
+
+                              <AnchorPane maxHeight="50.0" maxWidth="50" prefHeight="50.0" prefWidth="50.0" HBox.hgrow="NEVER">
+                                <SVGPath content="M27 24.57l-5.647-5.648a8.895 8.895 0 0 0 1.522-4.984C22.875 9.01 18.867 5 13.938 5 9.01 5 5 9.01 5 13.938c0 4.929 4.01 8.938 8.938 8.938a8.887 8.887 0 0 0 4.984-1.522L24.568 27 27 24.57zm-13.062-4.445a6.194 6.194 0 0 1-6.188-6.188 6.195 6.195 0 0 1 6.188-6.188 6.195 6.195 0 0 1 6.188 6.188 6.195 6.195 0 0 1-6.188 6.188z" layoutX="9.0" layoutY="9.0" scaleX="1.5" scaleY="1.5" />
+                              </AnchorPane>
+                          </HBox>
+                      </children>
+                  </HBox>
+
+              </VBox>
+         </HBox>
     </center>
+
 </BorderPane>

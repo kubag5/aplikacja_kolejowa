@@ -1,54 +1,81 @@
     package pl.kubag5.demo;
 
+    import javafx.animation.KeyFrame;
+    import javafx.animation.Timeline;
     import javafx.fxml.FXML;
+    import javafx.scene.control.Button;
+    import javafx.scene.control.DatePicker;
+    import javafx.scene.control.Label;
     import javafx.scene.control.TextField;
-    import javafx.scene.input.KeyCode;
     import javafx.scene.input.KeyEvent;
+    import javafx.scene.layout.VBox;
     import javafx.scene.text.Text;
+    import javafx.animation.TranslateTransition;
+    import javafx.fxml.Initializable;
+    import javafx.scene.layout.AnchorPane;
+    import javafx.util.Duration;
 
-    public class HelloController {
-        @FXML
-        public Text timeHintText;
+    import java.net.URL;
+    import java.time.LocalDate;
+    import java.util.ResourceBundle;
+
+    public class HelloController implements Initializable {
         @FXML
         public TextField timeTextField;
+        public VBox sideMenu;
+        public AnchorPane menuButton;
+        public VBox menuBox;
+        public AnchorPane menuContainer;
+        public DatePicker datePicker;
+        public AnchorPane reverseLineSearch;
         @FXML
-        private Text departureHintText;
+        private Text MenuClose;
         @FXML
         private TextField departureTextField;
         @FXML
         public TextField arrivalTextField;
-        @FXML
-        public Text arrivalHintText;
 
 
-        @FXML
-        public void removeHint(KeyEvent event) {
-            Object source = event.getSource();
+        @Override
+        public void initialize(URL url, ResourceBundle resourceBundle) {
 
-            if (source instanceof TextField) {
-                TextField textField = (TextField) source;
-                Text hintText = getHintFor(textField);
+            datePicker.setValue(LocalDate.now());
 
-                if (hintText != null) {
-                    hintText.setVisible(textField.getText().isEmpty());
+            sideMenu.setTranslateX(-300);
+            menuContainer.setPrefWidth(0);
+            sideMenu.setVisible(false);
+
+            menuButton.setOnMouseClicked(mouseEvent -> {
+                TranslateTransition slide = new TranslateTransition(Duration.seconds(.4), sideMenu);
+                if(sideMenu.isVisible()) {
+                    slide.setToX(-300);
+                    slide.play();
+                    slide.setOnFinished(event -> {
+                        sideMenu.setVisible(!sideMenu.isVisible());
+                        menuContainer.setPrefWidth(0);
+                    });
+                } else {
+                    menuContainer.setPrefWidth(300);
+
+                    slide.setToX(0);
+                    sideMenu.setVisible(!sideMenu.isVisible());
+                    slide.play();
                 }
-            }
+            });
+
+            reverseLineSearch.setOnMouseClicked(event -> {
+                String temp = departureTextField.getText();
+                departureTextField.setText(arrivalTextField.getText());
+                arrivalTextField.setText(temp);
+            });
         }
 
-        private Text getHintFor(TextField textField) {
-            return switch (textField.getId()) {
-                case "departureTextField" -> departureHintText;
-                case "arrivalTextField" -> arrivalHintText;
-                case "timeTextField" -> timeHintText;
-                default -> null;
-            };
-        }
+
+
 
         @FXML
         public void formatTime(KeyEvent event) {
             String s = timeTextField.getText();
-
-            
 
             s = s.replaceAll("[^\\d:]", "");
 
@@ -87,7 +114,5 @@
             timeTextField.setText(s);
             timeTextField.positionCaret(s.length());
         }
-
-
 
     }

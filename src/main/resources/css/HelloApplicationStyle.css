@@ -8,14 +8,38 @@
     -fx-primary-text-color: #212121;
     -fx-secondary-text-color: #757575;
 	-fx-light-grey-color: #d1d1d1;
+	-fx-transparent-color: #00000000;
 	-fx-focus-color: -fx-darker-primary-color;
 
 
     -fx-text-fill: -fx-primary-text-color;
 }
 
+#menuButton {
+    -fx-background-color: -fx-dark-primary-color;
+    -fx-border: none;
+    -fx-margin: 30;
+    -fx-padding: 7;
+}
+#menuButton:hover {
+    -fx-background-color: -fx-darker-primary-color;
+}
+#userButtonText {
+    -fx-font-size: 17pt;
+}
+
+.menuOption {
+    -fx-font-size: 15pt;
+    -fx-background-color: #00000010;
+}
+.date-picker .text-field {
+    -fx-background-color: -fx-transparent-color;
+    -fx-font-size: 11pt;
+    -fx-border: none;
+    -fx-font-size: 11pt;
+}
 .date-picker .arrow-button {
-	-fx-background-color: -fx-dark-primary-color;
+	-fx-background-color: -fx-primary-color;
 	-fx-background-radius: 0;
 }
 .date-picker .arrow-button:hover {
@@ -57,6 +81,10 @@
 .date-picker-popup .spinner .button .right-arrow {
 	-fx-background-color: white;
 }
+.date-picker-popup .label {
+    -fx-prompt-text-fill: #000000;
+    -fx-text-fill: #000000;
+}
 
 #title {
     -fx-font-size: 34pt;
@@ -80,8 +108,15 @@
 }
 .inputField {
     -fx-font-size: 11pt;
-    -fx-background-color: -fx-lighter-primary-color;
+    -fx-background-color: -fx-light-primary-color;
     -fx-padding: 10pt;
+    -fx-prompt-text-fill: #000000;
+}
+.inputField:hover {
+    -fx-background-color: -fx-lighter-primary-color;
+}
+.inputField:focused {
+    -fx-background-color: -fx-lighter-primary-color ;
 }
 .inputHint {
     -fx-font-size: 14pt;
@@ -100,6 +135,8 @@
     -fx-text-size: 35pt;
     -fx-text-fill: -fx-primary-text-color;
     -fx-font-style: italic;
+    -fx-background-color: -fx-light-primary-color;
+}
+.searchButton:hover {
     -fx-background-color: -fx-lighter-primary-color;
-
 }
