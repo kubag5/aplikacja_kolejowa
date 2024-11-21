@@ -73,7 +73,7 @@
                         <children>
 
                             <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
-                                <ComboBox maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputField" fx:id="departueComboBox" promptText="Wyjazd z"/>
+                                <ComboBox fx:id="departueComboBox" maxWidth="170" prefHeight="50.0" prefWidth="177.0" promptText="Wyjazd z" styleClass="inputField" />
                             </StackPane>
 
                             <AnchorPane fx:id="reverseLineSearch" maxHeight="50.0" prefHeight="2.0" prefWidth="50.0" HBox.hgrow="NEVER">
@@ -81,10 +81,7 @@
                             </AnchorPane>
 
                             <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
-                                <ComboBox maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputField" fx:id="arrivalComboBox" promptText="Przyjad do"/>
-                            </StackPane>
-                            <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
-                                <TextField fx:id="arrivalTextField" promptText="Przyjazd do" styleClass="inputField" />
+                                <ComboBox fx:id="arrivalComboBox" maxWidth="170" prefHeight="50.0" prefWidth="177.0" promptText="Przyjad do" styleClass="inputField" />
                             </StackPane>
 
 

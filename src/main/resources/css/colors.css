@@ -1,0 +1,12 @@
+:root {
+    --dark-primary: #689f38;
+    --darker-primary: #598a2f;
+    --light-primary: #bfe3c0;
+    --lighter-primary: #b0d6b1;
+    --primary: #8bc34a;
+    --accent: #4caf50;
+    --light-gray: #d1d1d1;
+    --primary-text: #212121;
+    --secondary-text: #757575;
+    --white: #ffffff;
+}
