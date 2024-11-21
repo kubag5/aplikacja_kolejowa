@@ -1,12 +1,9 @@
     package pl.kubag5.demo;
 
-    import javafx.animation.KeyFrame;
-    import javafx.animation.Timeline;
+    import javafx.collections.FXCollections;
+    import javafx.collections.ObservableList;
     import javafx.fxml.FXML;
-    import javafx.scene.control.Button;
-    import javafx.scene.control.DatePicker;
-    import javafx.scene.control.Label;
-    import javafx.scene.control.TextField;
+    import javafx.scene.control.*;
     import javafx.scene.input.KeyEvent;
     import javafx.scene.layout.VBox;
     import javafx.scene.text.Text;
@@ -28,18 +25,27 @@
         public AnchorPane menuContainer;
         public DatePicker datePicker;
         public AnchorPane reverseLineSearch;
+        public ComboBox<String> departueComboBox;
+        public ComboBox<String> arrivalComboBox;
         @FXML
         private Text MenuClose;
-        @FXML
-        private TextField departureTextField;
-        @FXML
-        public TextField arrivalTextField;
+
+        // In the future: 'stationList' == stations from database
+        private final ObservableList<String> stationList = FXCollections.observableArrayList(
+                "Warszawa", "Kraków", "Wrocław", "Poznań", "Gdańsk", "Zakpopane", "Żyrardów", "Łódź", "Skierniewice", "Gdynia", "Kielce", "Warszawa Centralna", "Grodziks Mazowiecki"
+        );
+        ComboBoxManager departureComboBoxManager;
+        ComboBoxManager arrivalComboBoxManager;
 
 
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
+            departureComboBoxManager = new ComboBoxManager(departueComboBox, stationList);
+            arrivalComboBoxManager = new ComboBoxManager(arrivalComboBox, stationList);
+
 
             datePicker.setValue(LocalDate.now());
+
 
             sideMenu.setTranslateX(-300);
             menuContainer.setPrefWidth(0);
@@ -64,13 +70,11 @@
             });
 
             reverseLineSearch.setOnMouseClicked(event -> {
-                String temp = departureTextField.getText();
-                departureTextField.setText(arrivalTextField.getText());
-                arrivalTextField.setText(temp);
+                String temp = departueComboBox.getEditor().getText();
+                departueComboBox.getEditor().setText(arrivalComboBox.getEditor().getText());
+                arrivalComboBox.getEditor().setText(temp);
             });
         }
-
-
 
 
         @FXML

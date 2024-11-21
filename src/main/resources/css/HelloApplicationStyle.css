@@ -15,6 +15,41 @@
     -fx-text-fill: -fx-primary-text-color;
 }
 
+.combo-box .text-field {
+    -fx-background-color: transparent;
+    -fx-border: none;
+}
+.combo-box .arrow-button {
+	-fx-background-color: -fx-primary-color;
+	-fx-background-radius: 0;
+}}
+ .combo-box .arrow-button .arrow{
+ 	-fx-background-color: white;
+ }
+.combo-box .arrow-button:hover {
+	-fx-background-color: -fx-accent-color;
+}
+
+.combo-box .cell {
+	-fx-background-color: white;
+	-fx-border-weight: 2;
+	-fx-border-color: -fx-lighter-primary-color;
+}
+.combo-box .cell:hover {
+	-fx-background-color: -fx-light-grey-color;
+}
+.combo-box .list-view .scroll-bar .track {
+    -fx-background-color: -fx-primary-color;
+}
+.combo-box .list-view .scroll-bar .thumb {
+    -fx-background-color: -fx-dark-primary-color;
+}
+.combo-box .button {
+    -fx-background-color: -fx-darker-primary-color;
+}
+
+
+
 #menuButton {
     -fx-background-color: -fx-dark-primary-color;
     -fx-border: none;
@@ -33,7 +68,7 @@
     -fx-background-color: #00000010;
 }
 .date-picker .text-field {
-    -fx-background-color: -fx-transparent-color;
+    -fx-background-color: transparent;
     -fx-font-size: 11pt;
     -fx-border: none;
     -fx-font-size: 11pt;

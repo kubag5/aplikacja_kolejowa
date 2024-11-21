@@ -40,44 +40,49 @@
         </GridPane>
     </top>
     <center>
+        <!-- =============== SideBar menu =============== -->
         <HBox prefHeight="-Infinity">
-            <AnchorPane fx:id="menuContainer" maxWidth="300" minWidth="0" style="-fx-background-color: #b0d6b1;" BorderPane.alignment="TOP_LEFT">
+            <AnchorPane fx:id="menuContainer" maxWidth="300" minWidth="0" style="-fx-background-color: #c8e6c9;" BorderPane.alignment="TOP_LEFT">
                 <children>
                     <VBox fx:id="sideMenu" maxWidth="300" minWidth="300" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
-                        <VBox fx:id="menuBox" prefWidth="300" style="-fx-background-color: #00000080;" VBox.vgrow="ALWAYS" spacing="10">
-                            <HBox styleClass="menuOption" minWidth="300" prefWidth="-Infinity" minHeight="50" alignment="CENTER">
-                                <Text textAlignment="RIGHT" HBox.hgrow="ALWAYS" text="Opcja menu" />
+                        <VBox fx:id="menuBox" prefWidth="300" spacing="10" style="-fx-background-color: #00000080;" VBox.vgrow="ALWAYS">
+                            <HBox alignment="CENTER" minHeight="50" minWidth="300" prefWidth="-Infinity" styleClass="menuOption">
+                                <Text text="Opcja menu" textAlignment="RIGHT" HBox.hgrow="ALWAYS" />
                             </HBox>
-                            <HBox styleClass="menuOption" minWidth="300" prefWidth="-Infinity" minHeight="50" alignment="CENTER">
-                                <Text textAlignment="RIGHT" HBox.hgrow="ALWAYS" text="Opcja menu" />
+                            <HBox alignment="CENTER" minHeight="50" minWidth="300" prefWidth="-Infinity" styleClass="menuOption">
+                                <Text text="Opcja menu" textAlignment="RIGHT" HBox.hgrow="ALWAYS" />
                             </HBox>
-                            <HBox styleClass="menuOption" minWidth="300" prefWidth="-Infinity" minHeight="50" alignment="CENTER">
-                                <Text textAlignment="RIGHT" HBox.hgrow="ALWAYS" text="Opcja menu" />
+                            <HBox alignment="CENTER" minHeight="50" minWidth="300" prefWidth="-Infinity" styleClass="menuOption">
+                                <Text text="Opcja menu" textAlignment="RIGHT" HBox.hgrow="ALWAYS" />
                             </HBox>
                         </VBox>
-                        <AnchorPane minHeight="50" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #00000090;">
+                        <HBox alignment="CENTER" minHeight="50" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" spacing="20" style="-fx-background-color: #00000090; -fx-padding-left: 100;">
                              <children>
                                 <SVGPath content="M12 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM12 13c4.418 0 8 2.015 8 4.5S20 22 12 22 4 19.985 4 17.5 7.582 13 12 13Z" layoutX="12.0" layoutY="13.0" scaleX="1.6" scaleY="1.6" />
-                                <Text id="userButtonText" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwa uzytkownika" textAlignment="RIGHT" wrappingWidth="300" AnchorPane.rightAnchor="7.0" />
+                                <Text id="userButtonText" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwa uzytkownika" textAlignment="LEFT" wrappingWidth="200" AnchorPane.rightAnchor="12.0" />
                              </children>
-                        </AnchorPane>
+                        </HBox>
                     </VBox>
                 </children>
             </AnchorPane>
 
+            <!-- =============== form =============== -->
             <VBox alignment="CENTER" maxHeight="Infinity" minWidth="200" prefHeight="178.0" spacing="17" style="-fx-background-color: #c8e6c9;" HBox.hgrow="ALWAYS">
 
                   <HBox alignment="CENTER" maxHeight="50" prefHeight="10.0" prefWidth="600.0" spacing="20">
                         <children>
 
                             <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
-                                <TextField fx:id="departureTextField" promptText="Wyjazd z" styleClass="inputField" />
+                                <ComboBox maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputField" fx:id="departueComboBox" promptText="Wyjazd z"/>
                             </StackPane>
 
                             <AnchorPane fx:id="reverseLineSearch" maxHeight="50.0" prefHeight="2.0" prefWidth="50.0" HBox.hgrow="NEVER">
                                 <SVGPath content="M9.25 6.12V4.87h-7l3-2.05-.71-1L.59 4.45A1.29 1.29 0 0 0 0 5.5a1.29 1.29 0 0 0 .59 1l3.93 2.72.71-1-3-2.06zm6.16 3.33-3.93-2.67-.71 1 3 2.06h-7v1.25h7.03l-3 2 .71 1 3.93-2.67a1.23 1.23 0 0 0 0-2.1z" layoutX="16.0" layoutY="2.0" scaleX="3" scaleY="3" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
                             </AnchorPane>
 
+                            <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
+                                <ComboBox maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputField" fx:id="arrivalComboBox" promptText="Przyjad do"/>
+                            </StackPane>
                             <StackPane maxWidth="170" prefHeight="50.0" prefWidth="177.0" styleClass="inputBox">
                                 <TextField fx:id="arrivalTextField" promptText="Przyjazd do" styleClass="inputField" />
                             </StackPane>
