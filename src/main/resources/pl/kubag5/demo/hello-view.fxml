@@ -59,7 +59,7 @@
                         <HBox alignment="CENTER" minHeight="50" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" spacing="20" style="-fx-background-color: #00000090; -fx-padding-left: 100;">
                              <children>
                                 <SVGPath content="M12 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM12 13c4.418 0 8 2.015 8 4.5S20 22 12 22 4 19.985 4 17.5 7.582 13 12 13Z" layoutX="12.0" layoutY="13.0" scaleX="1.6" scaleY="1.6" />
-                                <Text id="userButtonText" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwa uzytkownika" textAlignment="LEFT" wrappingWidth="200" AnchorPane.rightAnchor="12.0" />
+                                <Text id="userButtonText" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwa uzytkownika" wrappingWidth="200" />
                              </children>
                         </HBox>
                     </VBox>
