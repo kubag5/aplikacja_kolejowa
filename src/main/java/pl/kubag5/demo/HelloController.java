@@ -77,6 +77,8 @@
         }
 
 
+
+        //TODO: when the time is only partially given, '0' should be inserted in the empty spaces
         @FXML
         public void formatTime(KeyEvent event) {
             String s = timeTextField.getText();

@@ -87,7 +87,6 @@ public class ComboBoxManager {
     private void validateInput() {
         String input = comboBox.getEditor().getText();
         if (itemsList.stream().noneMatch(item -> item.equals(input))) {
-//            comboBox.getEditor().setText("");
             comboBox.setValue(null);
         } else {
             comboBox.setValue(itemsList.stream().filter(item -> item.equals(input)).findFirst().orElse(null));
