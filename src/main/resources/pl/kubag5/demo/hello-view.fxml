@@ -46,8 +46,8 @@
                 <children>
                     <VBox fx:id="sideMenu" maxWidth="300" minWidth="300" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                         <VBox fx:id="menuBox" prefWidth="300" spacing="10" style="-fx-background-color: #00000080;" VBox.vgrow="ALWAYS">
-                            <HBox alignment="CENTER" minHeight="50" minWidth="300" prefWidth="-Infinity" styleClass="menuOption">
-                                <Text text="Opcja menu" textAlignment="RIGHT" HBox.hgrow="ALWAYS" />
+                            <HBox alignment="CENTER" minHeight="50" minWidth="300" prefWidth="-Infinity" styleClass="menuOption" fx:id="discountsInfo">
+                                <Text text="Zniżki" textAlignment="RIGHT" HBox.hgrow="ALWAYS" />
                             </HBox>
                             <HBox alignment="CENTER" minHeight="50" minWidth="300" prefWidth="-Infinity" styleClass="menuOption">
                                 <Text text="Opcja menu" textAlignment="RIGHT" HBox.hgrow="ALWAYS" />

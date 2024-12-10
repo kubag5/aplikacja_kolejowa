@@ -3,13 +3,18 @@
     import javafx.collections.FXCollections;
     import javafx.collections.ObservableList;
     import javafx.fxml.FXML;
+    import javafx.fxml.FXMLLoader;
+    import javafx.scene.Parent;
+    import javafx.scene.Scene;
     import javafx.scene.control.*;
     import javafx.scene.input.KeyEvent;
+    import javafx.scene.layout.HBox;
     import javafx.scene.layout.VBox;
     import javafx.scene.text.Text;
     import javafx.animation.TranslateTransition;
     import javafx.fxml.Initializable;
     import javafx.scene.layout.AnchorPane;
+    import javafx.stage.Stage;
     import javafx.util.Duration;
 
     import java.net.URL;
@@ -27,6 +32,8 @@
         public AnchorPane reverseLineSearch;
         public ComboBox<String> departueComboBox;
         public ComboBox<String> arrivalComboBox;
+        public HBox discountsInfo;
+
         @FXML
         private Text MenuClose;
 
@@ -49,6 +56,20 @@
 
             sideMenu.setTranslateX(-300);
             menuContainer.setPrefWidth(0);
+            discountsInfo.setOnMouseClicked(event -> {
+                try {
+                    FXMLLoader fxmlLoader =  new FXMLLoader(HelloApplication.class.getResource("discounts.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    Stage stage = new Stage();
+                    stage.setTitle("Lista Zniżek");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+
             sideMenu.setVisible(false);
 
             menuButton.setOnMouseClicked(mouseEvent -> {
