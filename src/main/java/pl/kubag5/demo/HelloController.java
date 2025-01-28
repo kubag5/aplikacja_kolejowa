@@ -146,7 +146,7 @@
             timeTextField.positionCaret(s.length());
         }
 
-        // funkcja pobierająca możliwe połączenia pociągów, póki co bez filtrów wyszukiwania. Funkcja korzysta z JConnector do połączeń z bazą danych. Wykorzystuje protokół JDBC. Serwer, użytkownik, hasło można póki co skonfigurować w zmiennych w przyszłości będzie lepiej. Aktualnie funkcja pobiera: stacja początkową, stacja końcową, czas odjazdu, czas przyjazdu
+        // funkcja pobierająca możliwe połączenia pociągów, póki co bez filtrów wyszukiwania. Funkcja korzysta z JConnector do połączeń z bazą danych. Wykorzystuje protokół JDBC. Aktualnie funkcja pobiera: stacja początkową, stacja końcową, czas odjazdu, czas przyjazdu
         @FXML
         public void searchTrains() {
             try {
@@ -155,11 +155,9 @@
 
                 TrainRoutesController routesController = loader.getController();
 
-                String dbUrl = "jdbc:mysql://localhost:3306/kolejapk";
-                String dbUser = "root";
-                String dbPassword = "";
 
-                try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+
+                try (Connection connection = DriverManager.getConnection(Database.dbUrl, Database.dbUser, Database.dbPassword);
                      Statement statement = connection.createStatement();
                      ResultSet resultSet = statement.executeQuery("SELECT route_id, start_station, end_station, end_time, start_time FROM trains")) {
 
