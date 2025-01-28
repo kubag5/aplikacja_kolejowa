@@ -9,16 +9,36 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 
-
+/**
+ * A utility class for reading station data from an Excel file
+ * The class uses Apache POI to read `.xlsx` files and extracts specific data
+ * into a two-dimensional string array for further use.
+ */
 public class StationReader {
 
-
+    /**
+     * main method to reading stations form Exel file
+     *
+     * @param args -  Command-line arguments (not in use)
+     * @throws FileNotFoundException - If the file path provided does not exist
+     */
     public static void main(String[] args) throws FileNotFoundException {
         String[][] stationTable = getStationData("src/main/resources/Stations.xlsx");
-        System.out.println("Station Table:");
-        System.out.println(Arrays.deepToString(stationTable));
     }
 
+    /**
+     * Reads station data from the specified Excel file and formats it into a two-dimensional array
+     *
+     * This method:
+     * - Skips specific columns (based on indices in `columnsToSkip`).
+     * - Converts cell data into strings while handling various cell types (e.g., String, Numeric, Boolean).
+     * - Replaces certain values (e.g., "TAK" with "true" and "NIE" with "false").
+     * - Replaces empty cells with "unknown".
+     *
+     * @param filePath - path to Excel file
+     * @return - two-dimensional array(table) of station data
+     * @throws FileNotFoundException - if file not found
+     */
     public static String[][] getStationData(String filePath) throws FileNotFoundException {
         try {
             FileInputStream fis = new FileInputStream(new File(filePath));

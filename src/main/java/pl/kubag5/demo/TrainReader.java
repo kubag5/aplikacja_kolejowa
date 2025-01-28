@@ -7,8 +7,17 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.Arrays;
 
+/**
+ * A utility class for scraping train data from a given website
+ * The class uses Jsoup to fetch and parse an HTML page, extracting data from the first table on the page.
+ */
 public class TrainReader {
 
+    /**
+     * Main method to fetch and display train data from url
+     *
+     * @param args Command-line arguments (not in use).
+     */
     public static void main(String[] args) {
         String url = "https://www.intercity.pl/pl/aktualna-dostepnosc-pociagow-pkp-intercity-od-13.12.2020-roku/pociagi-kursujace-od-13-12-2020/";
         String[][] trainData = getTrainsData(url);
@@ -21,6 +30,12 @@ public class TrainReader {
         }
     }
 
+    /**
+     * Fetches train data from a website by extracting information from the first table on that page
+     *
+     * @param url The URL of the webpage containing the train data.
+     * @return A two-dimensional array containing the train data, or `null`
+     */
     public static String[][] getTrainsData(String url) {
         try {
             Document doc = Jsoup.connect(url).get();

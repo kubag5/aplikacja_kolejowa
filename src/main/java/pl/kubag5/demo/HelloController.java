@@ -25,6 +25,10 @@
     import java.time.LocalDate;
     import java.util.ResourceBundle;
 
+    /**
+     * Controller class for the Hello application that manages the UI behavior and handles events.
+     * It interacts with the database and provides functionalities like train search, time formatting, and menu toggling.
+     */
     public class HelloController implements Initializable {
         @FXML
         public TextField timeTextField;
@@ -38,8 +42,6 @@
         public ComboBox<String> arrivalComboBox;
         public HBox discountsInfo;
 
-        @FXML
-        private Text MenuClose;
 
         // In the future: 'stationList' == stations from database
         private final ObservableList<String> stationList = FXCollections.observableArrayList(
@@ -48,18 +50,27 @@
         ComboBoxManager departureComboBoxManager;
         ComboBoxManager arrivalComboBoxManager;
 
-
+        /**
+         * Initializes the controller for all interactive UI elements from according FXML file
+         * It also handles onclick events
+         *
+         * @param url - location of a FXML file
+         * @param resourceBundle - resource bundle
+         */
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
             departureComboBoxManager = new ComboBoxManager(departueComboBox, stationList);
             arrivalComboBoxManager = new ComboBoxManager(arrivalComboBox, stationList);
 
-
             datePicker.setValue(LocalDate.now());
-
 
             sideMenu.setTranslateX(-300);
             menuContainer.setPrefWidth(0);
+            sideMenu.setVisible(false);
+
+            /**
+             * Open discounts with window
+             */
             discountsInfo.setOnMouseClicked(event -> {
                 try {
                     FXMLLoader fxmlLoader =  new FXMLLoader(HelloApplication.class.getResource("discounts.fxml"));
@@ -74,8 +85,10 @@
                 }
             });
 
-            sideMenu.setVisible(false);
 
+            /**
+             * Handle the menu button click to toggle the side menu visibility
+             */
             menuButton.setOnMouseClicked(mouseEvent -> {
                 TranslateTransition slide = new TranslateTransition(Duration.seconds(.4), sideMenu);
                 if(sideMenu.isVisible()) {
@@ -94,6 +107,9 @@
                 }
             });
 
+            /**
+             * Handle switching contents between TextFields containing departure and arrival stations
+             */
             reverseLineSearch.setOnMouseClicked(event -> {
                 String temp = departueComboBox.getEditor().getText();
                 departueComboBox.getEditor().setText(arrivalComboBox.getEditor().getText());
@@ -102,7 +118,12 @@
         }
 
 
-
+        /**
+         * Formats the time input in the 'timeTextField'. This method ensures the input is in HH:mm format.
+         * It adjusts the user input to ensure it fits within valid time constraints
+         * if user input is outside of those boundaries time is automatically adjusted (max 23 hours, 59 minutes)
+         * @param event - triggered when a key is pressed while focused on the timeTextField - helps to identify event
+         */
         //TODO: when the time is only partially given, '0' should be inserted in the empty spaces
         @FXML
         public void formatTime(KeyEvent event) {
@@ -146,7 +167,13 @@
             timeTextField.positionCaret(s.length());
         }
 
-        // funkcja pobierająca możliwe połączenia pociągów, póki co bez filtrów wyszukiwania. Funkcja korzysta z JConnector do połączeń z bazą danych. Wykorzystuje protokół JDBC. Aktualnie funkcja pobiera: stacja początkową, stacja końcową, czas odjazdu, czas przyjazdu
+
+        /**
+         * Temporary solution
+         * Searches for available train routes from the database. It connects to the database using JDBC, retrieves
+         * routes based on the selected departure and arrival stations, and displays them in a new window.
+         * Currently, it fetches all routes without applying any filters.
+         */
         @FXML
         public void searchTrains() {
             try {
