@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Lis 25, 2024 at 09:15 AM
+-- Generation Time: Dec 09, 2024 at 09:37 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -34,7 +34,7 @@ CREATE TABLE `routes` (
   `arrival_time` time NOT NULL,
   `departure_time` time NOT NULL,
   `station_order` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -44,8 +44,10 @@ CREATE TABLE `routes` (
 
 CREATE TABLE `station` (
   `id` int(11) NOT NULL,
-  `station_name` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `station_name` varchar(60) NOT NULL,
+  `platform` tinyint(1) DEFAULT NULL,
+  `loading_point` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -62,8 +64,9 @@ CREATE TABLE `trains` (
   `start_time` time NOT NULL,
   `end_station` varchar(70) NOT NULL,
   `end_time` time NOT NULL,
-  `route_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `route_id` int(11) NOT NULL,
+  `category` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Indeksy dla zrzutów tabel
