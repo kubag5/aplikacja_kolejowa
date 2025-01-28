@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="pl.kubag5.demo.TrainRoutesController">
+<top>
+    <Label text="Dostępne połączenia" style="-fx-font-size: 18px; -fx-font-weight: bold;" BorderPane.alignment="CENTER" />
+</top>
+<center>
+    <TableView fx:id="routesTable" prefHeight="400" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="routeIdColumn" text="Route ID" prefWidth="100" />
+            <TableColumn fx:id="startStationColumn" text="Start Station" prefWidth="150" />
+            <TableColumn fx:id="endStationColumn" text="End Station" prefWidth="150" />
+            <TableColumn fx:id="departureTimeColumn" text="Departure Time" prefWidth="100" />
+            <TableColumn fx:id="arrivalTimeColumn" text="Arrival Time" prefWidth="100" />
+        </columns>
+    </TableView>
+</center>
+</BorderPane>

@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #111111;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kubag5.demo.HelloController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #111111;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kubag5.demo.HelloController">
     <top>
         <GridPane maxHeight="200" minHeight="100" prefHeight="124.0" prefWidth="600.0" style="-fx-background-color: #8bc34a;">
             <columnConstraints>
@@ -46,7 +46,7 @@
                 <children>
                     <VBox fx:id="sideMenu" maxWidth="300" minWidth="300" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                         <VBox fx:id="menuBox" prefWidth="300" spacing="10" style="-fx-background-color: #00000080;" VBox.vgrow="ALWAYS">
-                            <HBox alignment="CENTER" minHeight="50" minWidth="300" prefWidth="-Infinity" styleClass="menuOption" fx:id="discountsInfo">
+                            <HBox fx:id="discountsInfo" alignment="CENTER" minHeight="50" minWidth="300" prefWidth="-Infinity" styleClass="menuOption">
                                 <Text text="Zniżki" textAlignment="RIGHT" HBox.hgrow="ALWAYS" />
                             </HBox>
                             <HBox alignment="CENTER" minHeight="50" minWidth="300" prefWidth="-Infinity" styleClass="menuOption">
@@ -113,7 +113,7 @@
                           <HBox styleClass="searchButton">
                               <Button minHeight="50" minWidth="80" mnemonicParsing="false" prefWidth="200" styleClass="searchButton" text="SZUKAJ" />
 
-                              <AnchorPane maxHeight="50.0" maxWidth="50" prefHeight="50.0" prefWidth="50.0" HBox.hgrow="NEVER">
+                              <AnchorPane maxHeight="50.0" maxWidth="50" onMouseClicked="#searchTrains" prefHeight="50.0" prefWidth="50.0" HBox.hgrow="NEVER">
                                 <SVGPath content="M27 24.57l-5.647-5.648a8.895 8.895 0 0 0 1.522-4.984C22.875 9.01 18.867 5 13.938 5 9.01 5 5 9.01 5 13.938c0 4.929 4.01 8.938 8.938 8.938a8.887 8.887 0 0 0 4.984-1.522L24.568 27 27 24.57zm-13.062-4.445a6.194 6.194 0 0 1-6.188-6.188 6.195 6.195 0 0 1 6.188-6.188 6.195 6.195 0 0 1 6.188 6.188 6.195 6.195 0 0 1-6.188 6.188z" layoutX="9.0" layoutY="9.0" scaleX="1.5" scaleY="1.5" />
                               </AnchorPane>
                           </HBox>

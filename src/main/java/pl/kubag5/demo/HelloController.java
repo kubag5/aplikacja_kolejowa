@@ -18,6 +18,10 @@
     import javafx.util.Duration;
 
     import java.net.URL;
+    import java.sql.Connection;
+    import java.sql.DriverManager;
+    import java.sql.ResultSet;
+    import java.sql.Statement;
     import java.time.LocalDate;
     import java.util.ResourceBundle;
 
@@ -39,7 +43,7 @@
 
         // In the future: 'stationList' == stations from database
         private final ObservableList<String> stationList = FXCollections.observableArrayList(
-                "Warszawa", "Kraków", "Wrocław", "Poznań", "Gdańsk", "Zakpopane", "Żyrardów", "Łódź", "Skierniewice", "Gdynia", "Kielce", "Warszawa Centralna", "Grodziks Mazowiecki"
+                "Warszawa", "Kraków", "Wrocław", "Poznań", "Gdańsk", "Zakopane", "Żyrardów", "Łódź", "Skierniewice", "Gdynia", "Kielce", "Warszawa Centralna", "Grodzisk Mazowiecki"
         );
         ComboBoxManager departureComboBoxManager;
         ComboBoxManager arrivalComboBoxManager;
@@ -138,6 +142,44 @@
 
             timeTextField.setText(s);
             timeTextField.positionCaret(s.length());
+        }
+
+        // funkcja pobierająca możliwe połączenia pociągów, póki co bez filtrów wyszukiwania. Funkcja korzysta z JConnector do połączeń z bazą danych. Wykorzystuje protokół JDBC. Serwer, użytkownik, hasło można póki co skonfigurować w zmiennych w przyszłości będzie lepiej. Aktualnie funkcja pobiera: stacja początkową, stacja końcową, czas odjazdu, czas przyjazdu
+        @FXML
+        public void searchTrains() {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("trainRoutes.fxml"));
+                Parent root = loader.load();
+
+                TrainRoutesController routesController = loader.getController();
+
+                String dbUrl = "jdbc:mysql://localhost:3306/kolejapk";
+                String dbUser = "root";
+                String dbPassword = "";
+
+                try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+                     Statement statement = connection.createStatement();
+                     ResultSet resultSet = statement.executeQuery("SELECT route_id, start_station, end_station, end_time, start_time FROM trains")) {
+
+                    while (resultSet.next()) {
+                        int routeId = resultSet.getInt("route_id");
+                        String startStation = resultSet.getString("start_station");
+                        String endStation = resultSet.getString("end_station");
+                        String departureTime = resultSet.getString("end_time");
+                        String arrivalTime = resultSet.getString("start_time");
+
+                        routesController.addRoute(routeId, startStation, endStation, departureTime, arrivalTime);
+                    }
+                }
+
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Możliwe Połączenia:");
+                stage.show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }
