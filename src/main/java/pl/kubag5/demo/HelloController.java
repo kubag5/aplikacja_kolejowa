@@ -182,11 +182,7 @@
 
                 TrainRoutesController routesController = loader.getController();
 
-
-
-                try (Connection connection = DriverManager.getConnection(Database.dbUrl, Database.dbUser, Database.dbPassword);
-                     Statement statement = connection.createStatement();
-                     ResultSet resultSet = statement.executeQuery("SELECT route_id, start_station, end_station, end_time, start_time FROM trains")) {
+                try (ResultSet resultSet = Database.statement.executeQuery("SELECT route_id, start_station, end_station, end_time, start_time FROM trains")) {
 
                     while (resultSet.next()) {
                         int routeId = resultSet.getInt("route_id");
