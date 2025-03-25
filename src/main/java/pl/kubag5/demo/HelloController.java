@@ -18,10 +18,7 @@
     import javafx.util.Duration;
 
     import java.net.URL;
-    import java.sql.Connection;
-    import java.sql.DriverManager;
-    import java.sql.ResultSet;
-    import java.sql.Statement;
+    import java.sql.*;
     import java.time.LocalDate;
     import java.util.ResourceBundle;
 
@@ -42,13 +39,9 @@
         public ComboBox<String> arrivalComboBox;
         public HBox discountsInfo;
 
-
-        // In the future: 'stationList' == stations from database
-        private final ObservableList<String> stationList = FXCollections.observableArrayList(
-                "Warszawa", "Kraków", "Wrocław", "Poznań", "Gdańsk", "Zakopane", "Żyrardów", "Łódź", "Skierniewice", "Gdynia", "Kielce", "Warszawa Centralna", "Grodzisk Mazowiecki"
-        );
         ComboBoxManager departureComboBoxManager;
         ComboBoxManager arrivalComboBoxManager;
+
 
         /**
          * Initializes the controller for all interactive UI elements from according FXML file
@@ -59,8 +52,8 @@
          */
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
-            departureComboBoxManager = new ComboBoxManager(departueComboBox, stationList);
-            arrivalComboBoxManager = new ComboBoxManager(arrivalComboBox, stationList);
+            departureComboBoxManager = new ComboBoxManager(departueComboBox, arrivalComboBox.getEditor().getText());
+            arrivalComboBoxManager = new ComboBoxManager(arrivalComboBox, departueComboBox.getEditor().getText());
 
             datePicker.setValue(LocalDate.now());
 
@@ -124,7 +117,6 @@
          * if user input is outside of those boundaries time is automatically adjusted (max 23 hours, 59 minutes)
          * @param event - triggered when a key is pressed while focused on the timeTextField - helps to identify event
          */
-        //TODO: when the time is only partially given, '0' should be inserted in the empty spaces
         @FXML
         public void formatTime(KeyEvent event) {
             String s = timeTextField.getText();
@@ -169,7 +161,6 @@
 
 
         /**
-         * Temporary solution
          * Searches for available train routes from the database. It connects to the database using JDBC, retrieves
          * routes based on the selected departure and arrival stations, and displays them in a new window.
          * Currently, it fetches all routes without applying any filters.

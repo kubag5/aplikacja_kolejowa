@@ -16,19 +16,21 @@ import javafx.util.StringConverter;
 public class ComboBoxManager {
 
     private final ComboBox<String> comboBox;
-    private final ObservableList<String> itemsList;
+    private ObservableList<String> itemsList = FXCollections.observableArrayList();
 
     /**
      * Constructor to initialize ComboBoxManager
      *
      * @param comboBox - Element(ComboBox) to be managed
-     * @param list - The list of items to be displayed
      */
-    public ComboBoxManager(ComboBox<String> comboBox, ObservableList<String> list) {
+    public ComboBoxManager(ComboBox<String> comboBox, String otherStation) {
         this.comboBox = comboBox;
-        this.itemsList = list;
 
-        this.comboBox.setItems(FXCollections.observableArrayList(itemsList));
+        StationLoader stationLoader = new StationLoader(comboBox.getEditor().getText(), otherStation);
+        this.itemsList = stationLoader.getStationList();
+
+        this.comboBox.setItems(FXCollections.observableArrayList(stationLoader.getStationList()));
+
         init();
     }
 
@@ -42,7 +44,6 @@ public class ComboBoxManager {
         setDropdownHeight(6);
         listFilter();
         validation();
-
     }
 
     /**

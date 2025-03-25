@@ -21,6 +21,4 @@ public class Database {
             throw new RuntimeException(e);
         }
     }
-
-    // TODO: static add static connection here
 }
